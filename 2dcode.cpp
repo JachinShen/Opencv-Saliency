@@ -10,7 +10,7 @@ void fft2(Mat &src, Mat &dst);
 
 int main()
 {
-    string imagePath = "RoboMaster.png";
+    string imagePath = "DS.jpg";
 
     //////////////////////////////////////////////////////////////////////////
     //显著性计算
@@ -125,6 +125,12 @@ int main()
 
     namedWindow("Saliency", 1);
     imshow("Saliency",Saliency);
+    
+    Mat output;
+    Saliency.convertTo(output, CV_8UC1,255.0);
+    
+    
+    imwrite("output.jpg",output);
 
     waitKey(0);
 
